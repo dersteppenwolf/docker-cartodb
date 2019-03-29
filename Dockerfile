@@ -241,7 +241,7 @@ RUN mkdir -p /cartodb/log && touch /cartodb/log/users_modifications && \
     chmod +x /cartodb/script/fill_geocoder.sh && \
     chmod +x /cartodb/script/sync_tables_trigger.sh
 
-EXPOSE 80
+EXPOSE 80 5432
 
 ENV GDAL_DATA /usr/share/gdal/2.2
 
