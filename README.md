@@ -101,3 +101,12 @@ The image can be published to dockerhub with
 docker tag $ID dersteppen/cartodb:tagname
 docker push dersteppen/cartodb:tagname
 ```
+
+Running in production
+---------------
+
+See
+* https://github.com/sverhoeven/docker-cartodb/issues/68
+* https://github.com/sverhoeven/docker-cartodb/compare/master...sverhoeven:https-prod
+
+
