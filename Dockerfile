@@ -105,6 +105,7 @@ RUN useradd -m -d /home/cartodb -s /bin/bash cartodb && \
     libgmp-dev \
     libicu-dev \
     wget \
+    yarn \
     nginx-light \
     net-tools \
     ruby2.5-dev \
@@ -126,10 +127,11 @@ RUN cd /opt && \
     rm -rf varnish-3.0.7 varnish-3.0.7.tgz
 
 # Install NodeJS
-RUN curl https://nodejs.org/download/release/v6.9.2/node-v6.9.2-linux-x64.tar.gz| tar -zxf - --strip-components=1 -C /usr && \
+RUN curl https://nodejs.org/download/release/v10.15.1/node-v10.15.1-linux-x64.tar.gz| tar -zxf - --strip-components=1 -C /usr && \
   npm install -g grunt-cli && \
   npm install -g npm@3.10.9 && \
   rm -r /tmp/npm-* /root/.npm
+
 
 # Setting PostgreSQL
 RUN sed -i 's/\(peer\|md5\)/trust/' /etc/postgresql/10/main/pg_hba.conf && \
@@ -168,7 +170,7 @@ RUN git clone git://github.com/CartoDB/CartoDB-SQL-API.git && \
 RUN git clone git://github.com/CartoDB/Windshaft-cartodb.git && \
     cd Windshaft-cartodb && \
     git checkout $WINDSHAFT_VERSION && \
-    npm install -g yarn@0.27.5 && \
+    # npm install -g yarn@0.27.5 && \
     yarn install && \
     rm -r /tmp/npm-* /root/.npm && \
     mkdir logs
